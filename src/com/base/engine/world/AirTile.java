@@ -3,9 +3,10 @@ package com.base.engine.world;
 import org.newdawn.slick.Graphics;
 
 public class AirTile extends CellType{
-    private static final int NUM_SPRITES = 0;
+    private static final int NUM_SPRITES = 3;
     public AirTile(){
-        sprite = (int)(Math.random() * NUM_SPRITES);
+        sx = 1+(int)(Math.random() * NUM_SPRITES);
+        sy=1;
         sheet = "dirt_floor";
     }
 
@@ -23,4 +24,8 @@ public class AirTile extends CellType{
 //    public void draw(Graphics b,double x, double y){
 //
 //    }
+
+    public void updateSpriteCoords(){
+
+    }
 }

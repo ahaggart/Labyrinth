@@ -3,14 +3,16 @@ package com.base.engine.world;
 import com.base.engine.attachments.Attachment;
 import org.newdawn.slick.Graphics;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.LinkedList;
 
 public class GridCell implements WorldWrapGrid.Cell{
     private int status;
     private int x,y;
 
-    private static final float maxDistanceSquared = 0;
-    private static final float minDistanceSquared = 0;
+    private static final float maxDistanceSquared = 576;
+    private static final float minDistanceSquared = 529;
 
     private static final CellPopulator pop = new CellPopulator();
 
@@ -20,19 +22,23 @@ public class GridCell implements WorldWrapGrid.Cell{
         this.x = x;
         this.y = y;
 
+        this.status = DEAD;
+
         attachments = new LinkedList<>();
     }
 
     @Override
-    public boolean update(double ox, double oy,WorldWrapGrid.Cell[] neighbors) {
+    public boolean update(double ox, double oy,WorldWrapGrid.Cell[] neighbors,HashSet<WorldWrapGrid.Cell> activated) {
         double x_diff = this.x - ox;
         double y_diff = this.y - oy;
         double dist = x_diff*x_diff+y_diff*y_diff;
         if(dist < minDistanceSquared){
             //if too close to origin, generate new cells
+//            System.out.println("Generating neighbors");
             generate(neighbors);
             pop.finalPopulate(attachments,neighbors);
             setStatus(DORMANT);
+            activated.addAll(Arrays.asList(neighbors));
             return false;
         } else if(dist > maxDistanceSquared){
             //if too far from origin, die and wake neighbors
@@ -64,6 +70,7 @@ public class GridCell implements WorldWrapGrid.Cell{
             case GENERATE:
                 this.generateContents();
             case WAKE:
+//                System.out.println("("+x+","+y+"): activated");
                 this.status = ACTIVE;
                 break;
             default:
@@ -106,7 +113,19 @@ public class GridCell implements WorldWrapGrid.Cell{
         pop.populate(this.attachments);
     }
 
+    private CellType getCellType(){
+        CellAttachment lastAttachment = this.attachments.peek();
+        if(lastAttachment instanceof CellType){
+            return (CellType)lastAttachment;
+        }
+        return null;
+    }
+
     public int getType(){
-        return this.attachments.peek().getTypeCode();
+        return this.getCellType().getTypeCode();
+    }
+
+    public static int reverseDir(int dir){
+        return (dir+2)%4;
     }
 }

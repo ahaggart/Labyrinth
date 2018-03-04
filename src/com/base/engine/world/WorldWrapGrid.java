@@ -2,10 +2,7 @@ package com.base.engine.world;
 
 import org.newdawn.slick.Graphics;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 public class WorldWrapGrid {
     private int width,height;
@@ -29,7 +26,7 @@ public class WorldWrapGrid {
         int WIDTH = 16;
         int HEIGHT = 16;
 
-        boolean update(double ox, double oy,Cell[] neighbors);
+        boolean update(double ox, double oy,Cell[] neighbors,HashSet<Cell> activated);
         void draw(Graphics b);
         void setStatus(int status);
         int getStatus();
@@ -90,13 +87,15 @@ public class WorldWrapGrid {
     }
 
     public void update(){
+        HashSet<Cell> activated = new HashSet<>();
         for (Iterator<Cell> i = activeCells.iterator(); i.hasNext();) {
             Cell cell = i.next();
             //pass cell its neighbors so it can take appropriate actions
-            if (!cell.update(ox,oy,this.getNeighbors(cell))) {
+            if (!cell.update(ox,oy,this.getNeighbors(cell),activated)) {
                 i.remove();
             }
         }
+        activeCells.addAll(activated);
     }
 
     public void draw(Graphics b){
@@ -115,6 +114,8 @@ public class WorldWrapGrid {
         }
 
         //reset player data
+
+        //seed the map
     }
 
     private Cell[] getNeighbors(Cell c){
@@ -122,10 +123,10 @@ public class WorldWrapGrid {
         int y = c.getY();
         Cell[] neighbors = new Cell[4];
 
-        neighbors[Cell.UP]      = this.getRelativeCell(x,y+1);
-        neighbors[Cell.RIGHT]   = this.getRelativeCell(x+1,y);
-        neighbors[Cell.DOWN]    = this.getRelativeCell(x,y-1);
-        neighbors[Cell.LEFT]    = this.getRelativeCell(x-1,y);
+        neighbors[Cell.UP]      = this.getCell(x,y-1);
+        neighbors[Cell.RIGHT]   = this.getCell(x+1,y);
+        neighbors[Cell.DOWN]    = this.getCell(x,y+1);
+        neighbors[Cell.LEFT]    = this.getCell(x-1,y);
 
         return neighbors;
     }
