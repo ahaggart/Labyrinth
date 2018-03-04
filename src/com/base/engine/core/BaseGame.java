@@ -1,4 +1,5 @@
 package com.base.engine.core;
+import com.base.engine.world.WorldWrapGrid;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.Color;
@@ -19,7 +20,7 @@ public class BaseGame extends BasicGame
 	public static int width = 1366;
 	public static int height = 768;
 
-	private World world;
+	private WorldWrapGrid world;
 	
 	public BaseGame()
 	{
@@ -29,7 +30,7 @@ public class BaseGame extends BasicGame
 	@Override
 	public void init(GameContainer gc) throws SlickException 
 	{
-		world = new World(width, height);
+		world = new WorldWrapGrid(width, height);
 		input = gc.getInput();
 		System.out.println("" + gc.getScreenWidth() + " x " + gc.getScreenHeight());
 	}
@@ -38,8 +39,8 @@ public class BaseGame extends BasicGame
 	public void render(GameContainer gc, Graphics b) throws SlickException 
 	{
 		world.draw(b);
-		b.setColor(Color.white);
-		b.drawString("FPS: " + gc.getFPS(), 20, 40);
+//		b.setColor(Color.white);
+//		b.drawString("FPS: " + gc.getFPS(), 20, 40);
 	}
 
 	@Override
@@ -54,7 +55,7 @@ public class BaseGame extends BasicGame
         {
 			app = new AppGameContainer(new BaseGame());
 			app.setDisplayMode(width,height,false);
-			app.setVSync(false);
+//			app.setVSync(false);
 			app.setTargetFrameRate(60);
 			app.setShowFPS(true);
 			app.start();
