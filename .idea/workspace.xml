@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="422d6826-9b4b-4110-80c3-bfd812b39909" name="Default" comment="started work on a more efficient grid manager">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/base/engine/world/AirTile.java" afterPath="$PROJECT_DIR$/src/com/base/engine/world/AirTile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/base/engine/world/CellType.java" afterPath="$PROJECT_DIR$/src/com/base/engine/world/CellType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/base/engine/world/GridCell.java" afterPath="$PROJECT_DIR$/src/com/base/engine/world/GridCell.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/base/engine/world/WallTile.java" afterPath="$PROJECT_DIR$/src/com/base/engine/world/WallTile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/base/engine/world/WorldWrapGrid.java" afterPath="$PROJECT_DIR$/src/com/base/engine/world/WorldWrapGrid.java" />
-    </list>
+    <list default="true" id="422d6826-9b4b-4110-80c3-bfd812b39909" name="Default" comment="started work on a more efficient grid manager" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -93,8 +86,8 @@
       <file leaf-file-name="WallTile.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/base/engine/world/WallTile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="93" column="22" lean-forward="false" selection-start-line="93" selection-start-column="22" selection-end-line="93" selection-end-column="22" />
+            <state relative-caret-position="-102">
+              <caret line="89" column="22" lean-forward="true" selection-start-line="89" selection-start-column="22" selection-end-line="89" selection-end-column="22" />
               <folding>
                 <element signature="e#1017#1018#0" expanded="true" />
                 <element signature="e#1041#1042#0" expanded="true" />
@@ -439,12 +432,12 @@
       <workItem from="1520035621934" duration="3170000" />
       <workItem from="1520040505933" duration="609000" />
       <workItem from="1520067978415" duration="1367000" />
-      <workItem from="1520111331323" duration="23269000" />
+      <workItem from="1520111331323" duration="23920000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28415000" />
+    <option name="totallyTimeSpent" value="29066000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="0" />
@@ -794,8 +787,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/base/engine/world/WallTile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="93" column="22" lean-forward="false" selection-start-line="93" selection-start-column="22" selection-end-line="93" selection-end-column="22" />
+        <state relative-caret-position="-102">
+          <caret line="89" column="22" lean-forward="true" selection-start-line="89" selection-start-column="22" selection-end-line="89" selection-end-column="22" />
           <folding>
             <element signature="e#1017#1018#0" expanded="true" />
             <element signature="e#1041#1042#0" expanded="true" />
