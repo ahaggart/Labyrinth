@@ -20,7 +20,7 @@ public class BaseGame extends BasicGame
 	public static int width = 1366;
 	public static int height = 768;
 
-	private WorldWrapGrid world;
+	private World world;
 	
 	public BaseGame()
 	{
@@ -30,7 +30,7 @@ public class BaseGame extends BasicGame
 	@Override
 	public void init(GameContainer gc) throws SlickException 
 	{
-		world = new WorldWrapGrid(width, height);
+		world = new World(width, height);
 		input = gc.getInput();
 		System.out.println("" + gc.getScreenWidth() + " x " + gc.getScreenHeight());
 	}
